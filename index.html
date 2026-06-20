@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cosy & Treasures | Affordable, Elegant Fashion in Kaduna</title>
+<meta name="description" content="Cosy & Treasures — premium thrift, new arrivals, and kids' wear for women who want style without spending a fortune. Shop in Kaduna or order on WhatsApp.">
+
+<!-- Open Graph: controls how this link previews on WhatsApp / Instagram / Facebook when shared -->
+<meta property="og:title" content="Cosy & Treasures">
+<meta property="og:description" content="Life is too short to wear boring clothes. Affordable, elegant fashion for women and children — Kaduna, Nigeria.">
+<meta property="og:image" content="images/cosy-logo.png">
+<meta property="og:type" content="website">
+
+<!-- Favicon: the small icon shown in the browser tab -->
+<link rel="icon" href="images/cosy-logo.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --oat: #F3ECE0;
+    --oat-soft: #EDE3D3;
+    --ink: #2C2420;
+    --ink-soft: #5A4F47;
+    --brass: #A07C3B;
+    --wine: #7A3640;
+    --wine-dark: #5E2A32;
+    --blush: #E8D7C7;
+    --espresso: #241D1A;
+    --shadow: 0 12px 32px rgba(36, 29, 26, 0.12);
+  }
+
+  *{ margin:0; padding:0; box-sizing:border-box; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    background:var(--oat);
+    color:var(--ink);
+    font-family:'Jost', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+
+  h1,h2,h3,.serif{
+    font-family:'Cormorant Garamond', serif;
+    font-weight:500;
+    line-height:1.15;
+  }
+
+  a{ color:inherit; text-decoration:none; }
+  img{ max-width:100%; display:block; }
+  ul{ list-style:none; }
+
+  .eyebrow{
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    font-size:.78rem;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--brass);
+    font-weight:500;
+    margin-bottom:1rem;
+  }
+
+  .wrap{
+    max-width:1140px;
+    margin:0 auto;
+    padding:0 6vw;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.6rem;
+    padding:.95rem 2rem;
+    font-family:'Jost', sans-serif;
+    font-size:.85rem;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    border-radius:2px;
+    border:1px solid transparent;
+    cursor:pointer;
+    transition:background .35s ease, color .35s ease, border-color .35s ease, transform .25s ease;
+  }
+  .btn-primary{
+    background:var(--wine);
+    color:var(--oat);
+  }
+  .btn-primary:hover{ background:var(--wine-dark); transform:translateY(-2px); }
+  .btn-outline{
+    border-color:rgba(243,236,224,.6);
+    color:var(--oat);
+  }
+  .btn-outline:hover{ border-color:var(--oat); background:rgba(243,236,224,.1); transform:translateY(-2px); }
+
+  /* ---------- Nav ---------- */
+  .nav{
+    position:fixed;
+    top:0; left:0; right:0;
+    z-index:100;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:1.6rem 6vw;
+    transition:background .4s ease, padding .4s ease, box-shadow .4s ease;
+  }
+  .nav.is-scrolled{
+    background:rgba(243,236,224,.96);
+    padding:1rem 6vw;
+    box-shadow:0 4px 20px rgba(36,29,26,.08);
+  }
+  .nav-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.4rem;
+    color:var(--oat);
+    transition:color .4s ease;
+  }
+  .nav.is-scrolled .nav-mark{ color:var(--ink); }
+  .nav-links{
+    display:flex;
+    gap:2.2rem;
+    font-size:.82rem;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:var(--oat);
+    transition:color .4s ease;
+  }
+  .nav.is-scrolled .nav-links{ color:var(--ink-soft); }
+  .nav-links a{ position:relative; }
+  .nav-links a::after{
+    content:'';
+    position:absolute; left:0; bottom:-6px;
+    width:0; height:1px;
+    background:currentColor;
+    transition:width .3s ease;
+  }
+  .nav-links a:hover::after{ width:100%; }
+
+  @media (max-width:720px){
+    .nav-links{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+  }
+  .hero video{
+    position:absolute;
+    top:50%; left:50%;
+    width:100%; height:100%;
+    object-fit:cover;
+    transform:translate(-50%,-50%);
+    z-index:0;
+  }
+  .hero::before{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(36,29,26,.55) 0%, rgba(36,29,26,.35) 45%, rgba(36,29,26,.7) 100%);
+    z-index:1;
+  }
+  .hero-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    color:var(--oat);
+    padding:0 6vw;
+  }
+  .hero-content .eyebrow{ color:var(--blush); justify-content:center; }
+  .hero-mark{
+    font-size:clamp(2.6rem, 7vw, 5.2rem);
+    font-style:italic;
+    letter-spacing:.01em;
+  }
+  .hero-tag{
+    margin-top:1.1rem;
+    font-family:'Cormorant Garamond', serif;
+    font-size:clamp(1.1rem, 2vw, 1.5rem);
+    font-style:italic;
+    color:var(--oat);
+    opacity:.92;
+  }
+  .hero-actions{
+    margin-top:2.4rem;
+    display:flex;
+    gap:1rem;
+    justify-content:center;
+    flex-wrap:wrap;
+  }
+
+  /* ---------- Reveal on scroll ---------- */
+  .reveal{
+    opacity:0;
+    transform:translateY(28px);
+    transition:opacity .9s ease, transform .9s ease;
+  }
+  .reveal.is-visible{
+    opacity:1;
+    transform:none;
+  }
+  .reveal-stagger > *{ transition-delay:calc(var(--i, 0) * 90ms); }
+
+  /* ---------- Section spacing ---------- */
+  section{ padding:7rem 0; }
+  .section-head{
+    text-align:center;
+    max-width:640px;
+    margin:0 auto 3.2rem;
+  }
+  .section-head h2{ font-size:clamp(1.9rem, 3vw, 2.6rem); }
+
+  /* ---------- Philosophy ---------- */
+  .philosophy{ text-align:center; }
+  .philosophy p{
+    max-width:680px;
+    margin:0 auto;
+    font-size:1.15rem;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Products ---------- */
+  .products{ background:var(--oat-soft); }
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:1.6rem;
+  }
+  .product-card{
+    background:var(--oat);
+    border:1px solid rgba(160,124,59,.25);
+    padding:2.4rem 1.8rem;
+    text-align:center;
+    transition:border-color .35s ease, transform .35s ease, box-shadow .35s ease;
+  }
+  .product-card:hover{
+    border-color:var(--brass);
+    transform:translateY(-6px);
+    box-shadow:var(--shadow);
+  }
+  .product-card .mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:1.8rem;
+    color:var(--brass);
+    margin-bottom:1rem;
+  }
+  .product-card h3{ font-size:1.25rem; margin-bottom:.6rem; }
+  .product-card p{ font-size:.92rem; color:var(--ink-soft); }
+
+  /* ---------- Value props ---------- */
+  .values{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+    gap:2.4rem;
+    text-align:center;
+  }
+  .values h3{ font-size:1.35rem; margin-bottom:.7rem; }
+  .values p{ color:var(--ink-soft); font-size:.95rem; max-width:280px; margin:0 auto; }
+
+  /* ---------- Stitch divider (signature motif) ---------- */
+  .stitch{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:.5rem;
+    padding:2.5rem 0;
+  }
+  .stitch span{
+    width:10px; height:2px;
+    background:var(--brass);
+    opacity:.6;
+    border-radius:1px;
+  }
+  .stitch .sparkle{
+    width:auto; height:auto;
+    background:none;
+    color:var(--brass);
+    font-size:1rem;
+    opacity:1;
+  }
+
+  /* ---------- Quote banner ---------- */
+  .quote-banner{
+    background:var(--espresso);
+    color:var(--oat);
+    text-align:center;
+    padding:6.5rem 0;
+  }
+  .quote-banner blockquote{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    font-size:clamp(1.7rem, 4vw, 2.8rem);
+    max-width:760px;
+    margin:0 auto 1.4rem;
+  }
+  .quote-banner cite{
+    display:block;
+    font-style:normal;
+    font-size:.85rem;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--brass);
+  }
+
+  /* ---------- Testimonials ---------- */
+  .testimonials{ text-align:center; }
+  .carousel{
+    position:relative;
+    max-width:620px;
+    margin:0 auto;
+    min-height:240px;
+  }
+  .testimonial{
+    position:absolute;
+    inset:0;
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .6s ease, transform .6s ease;
+    transform:translateY(10px);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:1rem;
+  }
+  .testimonial.is-active{
+    opacity:1;
+    pointer-events:auto;
+    transform:none;
+  }
+  .stars{ color:var(--brass); font-size:1.1rem; letter-spacing:.2em; }
+  .testimonial p{
+    font-family:'Cormorant Garamond', serif;
+    font-size:1.35rem;
+    font-style:italic;
+    color:var(--ink);
+    max-width:520px;
+  }
+  .carousel-controls{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:1.5rem;
+    margin-top:1.5rem;
+  }
+  .carousel-dots{ display:flex; gap:.6rem; }
+  .dot{
+    width:8px; height:8px;
+    border-radius:50%;
+    background:rgba(160,124,59,.35);
+    border:none;
+    cursor:pointer;
+    transition:background .3s ease;
+  }
+  .dot.is-active{ background:var(--brass); }
+  .carousel-arrow{
+    background:none;
+    border:1px solid rgba(160,124,59,.4);
+    width:38px; height:38px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:var(--brass);
+    transition:border-color .3s ease, background .3s ease;
+  }
+  .carousel-arrow:hover{ background:var(--blush); border-color:var(--brass); }
+
+  /* ---------- Contact ---------- */
+  .contact{
+    background:var(--blush);
+    text-align:center;
+  }
+  .contact-details{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:2.6rem;
+    margin-top:2.2rem;
+    font-size:.95rem;
+  }
+  .contact-details a:hover{ color:var(--wine); }
+  .contact-details .label{
+    display:block;
+    font-size:.72rem;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-bottom:.4rem;
+  }
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--espresso);
+    color:rgba(243,236,224,.65);
+    text-align:center;
+    padding:2.6rem 0;
+    font-size:.82rem;
+    letter-spacing:.04em;
+  }
+  footer .footer-mark{
+    font-family:'Cormorant Garamond', serif;
+    font-style:italic;
+    color:var(--oat);
+    font-size:1.1rem;
+    margin-bottom:.6rem;
+  }
+
+  /* ---------- Floating WhatsApp button ---------- */
+  .whatsapp-float{
+    position:fixed;
+    bottom:24px;
+    right:24px;
+    z-index:200;
+    width:58px; height:58px;
+    background:#25D366;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:0 8px 24px rgba(36,29,26,.3);
+    transition:transform .3s ease;
+  }
+  .whatsapp-float:hover{ transform:scale(1.08); }
+  .whatsapp-float::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:50%;
+    background:#25D366;
+    opacity:.55;
+    animation:pulse 2.4s ease-out infinite;
+    z-index:-1;
+  }
+  @keyframes pulse{
+    0%{ transform:scale(1); opacity:.55; }
+    100%{ transform:scale(1.9); opacity:0; }
+  }
+  .whatsapp-float svg{ width:28px; height:28px; fill:#fff; }
+
+  @media (prefers-reduced-motion: reduce){
+    *{ animation:none !important; transition:none !important; }
+    .reveal{ opacity:1; transform:none; }
+  }
+
+  :focus-visible{
+    outline:2px solid var(--brass);
+    outline-offset:3px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a href="#" class="nav-mark">The Cosy &amp; Treasures</a>
+  <div class="nav-links">
+    <a href="#story">Our Story</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <!-- If your video lives inside a folder (e.g. videos/), update the path below -->
+  <video src="cosystudiohero.mp4" autoplay muted loop playsinline></video>
+  <div class="hero-content">
+    <span class="eyebrow">✦ Kaduna, Nigeria ✦</span>
+    <h1 class="hero-mark">Cosy &amp; Treasures</h1>
+    <p class="hero-tag">"Life is too short to wear boring clothes."</p>
+    <div class="hero-actions">
+      <a href="https://wa.me/2349039443963?text=Hi%2C%20I%27d%20like%20to%20see%20what%27s%20available%20at%20Cosy%20%26%20Treasures" class="btn btn-primary">Shop the Collection</a>
+      <a href="#story" class="btn btn-outline">Our Story</a>
+    </div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="eyebrow">✦ Our Promise ✦</span>
+    </div>
+    <p>Cosy &amp; Treasures helps women and children look stylish, confident, and elegant — without spending a fortune. Every piece is hand-selected for comfort, beauty, and quality you can feel.</p>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">✦ What We Offer ✦</span>
+      <h2>Curated For You</h2>
+    </div>
+    <div class="product-grid reveal-stagger">
+      <div class="product-card reveal" style="--i:0">
+        <div class="mark">I</div>
+        <h3>Premium Thrift</h3>
+        <p>Carefully curated pre-loved pieces, inspected for quality and condition.</p>
+      </div>
+      <div class="product-card reveal" style="--i:1">
+        <div class="mark">II</div>
+        <h3>New Arrivals</h3>
+        <p>Brand-new fashion pieces added regularly to keep your wardrobe fresh.</p>
+      </div>
+      <div class="product-card reveal" style="--i:2">
+        <div class="mark">III</div>
+        <h3>Kids' Wear</h3>
+        <p>Affordable, stylish pieces for the little ones in your life.</p>
+      </div>
+      <div class="product-card reveal" style="--i:3">
+        <div class="mark">IV</div>
+        <h3>Free-Size Gowns</h3>
+        <p>Effortless, flattering fits designed to suit every body.</p>
+      </div>
+      <div class="product-card reveal" style="--i:4">
+        <div class="mark">V</div>
+        <h3>Styling Advice</h3>
+        <p>Personal outfit guidance so you always feel put-together.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE PROPS -->
+<section>
+  <div class="wrap values reveal-stagger">
+    <div class="reveal" style="--i:0">
+      <h3>Affordable Luxury</h3>
+      <p>Carefully selected pieces that look and feel far more expensive than they are.</p>
+    </div>
+    <div class="reveal" style="--i:1">
+      <h3>Quality You Can Trust</h3>
+      <p>Every item checked for condition and authenticity before it reaches you.</p>
+    </div>
+    <div class="reveal" style="--i:2">
+      <h3>Styled With Care</h3>
+      <p>Personalised outfit recommendations so you always feel put together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- STORY (anchor target for nav) -->
+<section id="story">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="eyebrow">✦ Our Story ✦</span>
+      <h2>Why Cosy &amp; Treasures</h2>
+    </div>
+    <p style="max-width:680px; margin:0 auto; text-align:center; color:var(--ink-soft); font-size:1.05rem;">
+      Fashion has always been more than clothing — it's self-expression, it's confidence, it's identity.
+      Cosy &amp; Treasures began with a simple love: beautiful, well-selected outfits. We noticed women
+      wanted style without giving up quality, and quality without giving up affordability — so we built
+      a brand around exactly that. Today, we continue serving those who believe in style, value, and
+      feeling good in what they wear.
+    </p>
+  </div>
+</section>
+
+<!-- STITCH DIVIDER — signature motif -->
+<div class="stitch" aria-hidden="true">
+  <span></span><span></span><span></span>
+  <span class="sparkle">✦</span>
+  <span></span><span></span><span></span>
+</div>
+
+<!-- QUOTE BANNER -->
+<section class="quote-banner">
+  <div class="wrap reveal">
+    <blockquote>"Life is too short to wear boring clothes."</blockquote>
+    <cite>— Hauwa Jibril, Founder</cite>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="reviews">
+  <div class="wrap reveal">
+    <div class="section-head">
+      <span class="eyebrow">✦ Loved By Customers ✦</span>
+      <h2>What They're Saying</h2>
+    </div>
+    <div class="carousel" id="carousel">
+      <div class="testimonial is-active">
+        <div class="stars">★★★★★</div>
+        <p>"The items arrived looking amazing. The packaging was beautiful and everything was brand new with tags."</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"I'll definitely shop again. Thank you for the gift!"</p>
+      </div>
+      <div class="testimonial">
+        <div class="stars">★★★★★</div>
+        <p>"The item looks exactly like the pictures, and the quality exceeded my expectations. It's honestly worth more than the price paid."</p>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-arrow" id="prevBtn" aria-label="Previous review">&#8249;</button>
+      <div class="carousel-dots" id="dots"></div>
+      <button class="carousel-arrow" id="nextBtn" aria-label="Next review">&#8250;</button>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap reveal">
+    <span class="eyebrow">✦ Get In Touch ✦</span>
+    <h2>Let's Find Your Next Favourite Piece</h2>
+    <div class="contact-details">
+      <a href="https://wa.me/2349039443963" target="_blank" rel="noopener">
+        <span class="label">WhatsApp</span>+234 903 944 3963
+      </a>
+      <a href="mailto:hauweeyeve21@gmail.com">
+        <span class="label">Email</span>hauweeyeve21@gmail.com
+      </a>
+      <a href="https://instagram.com/thecosy_treasures" target="_blank" rel="noopener">
+        <span class="label">Instagram</span>@thecosy_treasures
+      </a>
+      <a href="https://tiktok.com/@thecosy_treasures" target="_blank" rel="noopener">
+        <span class="label">TikTok</span>@thecosy_treasures
+      </a>
+      <span>
+        <span class="label">Visit Us</span>56 Complex, Shop No. 22,<br>Murtala Square, Kaduna
+      </span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-mark">The Cosy &amp; Treasures</div>
+  <p>&copy; 2026 Cosy &amp; Treasures. All rights reserved.</p>
+</footer>
+
+<!-- FLOATING WHATSAPP BUTTON -->
+<a href="https://wa.me/2349039443963?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20Cosy%20%26%20Treasures"
+   class="whatsapp-float" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.6 6.32A8.86 8.86 0 0 0 12.05 4 8.94 8.94 0 0 0 3.1 12.94a8.83 8.83 0 0 0 1.36 4.74L3 21l3.42-1.39a8.93 8.93 0 0 0 4.63 1.28h.01a8.94 8.94 0 0 0 8.94-8.95 8.86 8.86 0 0 0-2.4-5.62zm-5.55 13.74h-.01a7.4 7.4 0 0 1-3.77-1.03l-.27-.16-2.79 1.13.93-2.72-.18-.28a7.34 7.34 0 0 1-1.13-3.93 7.43 7.43 0 0 1 7.44-7.43 7.4 7.4 0 0 1 5.25 2.18 7.36 7.36 0 0 1 2.17 5.25 7.43 7.43 0 0 1-7.44 7.43zm4.08-5.57c-.22-.11-1.31-.65-1.51-.72-.2-.08-.35-.11-.5.11-.15.22-.57.72-.7.87-.13.15-.26.16-.48.05-.22-.11-.93-.34-1.77-1.1a6.63 6.63 0 0 1-1.22-1.52c-.13-.22-.01-.34.11-.46.11-.11.25-.28.37-.42.13-.14.17-.24.25-.4.08-.16.04-.3-.03-.41-.07-.11-.6-1.45-.83-1.98-.22-.51-.44-.44-.6-.45h-.51c-.16 0-.43.06-.66.31-.22.25-.85.83-.85 2.02s.87 2.35 1 2.51c.13.16 1.71 2.61 4.15 3.56 2.44.95 2.44.63 2.88.59.44-.04 1.43-.58 1.63-1.15.2-.56.2-1.04.14-1.15-.06-.1-.22-.16-.43-.27z"/></svg>
+</a>
+
+<script>
+  // Sticky nav background on scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('is-scrolled', window.scrollY > 60);
+  }, { passive:true });
+
+  // Scroll-triggered reveal animations
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Testimonial carousel
+  const testimonials = document.querySelectorAll('.testimonial');
+  const dotsWrap = document.getElementById('dots');
+  let current = 0;
+  let autoTimer;
+
+  testimonials.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'dot' + (i === 0 ? ' is-active' : '');
+    dot.setAttribute('aria-label', 'Show review ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsWrap.appendChild(dot);
+  });
+  const dots = document.querySelectorAll('.dot');
+
+  function goTo(index){
+    testimonials[current].classList.remove('is-active');
+    dots[current].classList.remove('is-active');
+    current = (index + testimonials.length) % testimonials.length;
+    testimonials[current].classList.add('is-active');
+    dots[current].classList.add('is-active');
+  }
+
+  function autoAdvance(){
+    autoTimer = setInterval(() => goTo(current + 1), 6000);
+  }
+  function resetAuto(){
+    clearInterval(autoTimer);
+    autoAdvance();
+  }
+
+  document.getElementById('prevBtn').addEventListener('click', () => { goTo(current - 1); resetAuto(); });
+  document.getElementById('nextBtn').addEventListener('click', () => { goTo(current + 1); resetAuto(); });
+
+  autoAdvance();
+</script>
+
+</body>
+</html>
